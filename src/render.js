@@ -1,4 +1,4 @@
-import "./tests/component.test.js";
+// import "../test/component.test.js/";
 
 export function render(element, mainDom) {
   if (typeof element === "string") {
@@ -11,7 +11,7 @@ export function render(element, mainDom) {
     console.log(text);
     const tagname = text[1];
     let className;
-    import("./tests/component.test.js").then(tagname => {
+    import("../test/component.test.js").then(tagname => {
       className = tagname[text[1]];
       console.log(className);
       const app = new className();

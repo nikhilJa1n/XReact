@@ -1,6 +1,6 @@
-import XReact from "../XReact.js";
-import Component from "../component.js";
-import { createElement } from "../createElement.js";
+import XReact from "../src/XReact.js";
+import Component from "../src/component.js";
+import { createElement } from "../src/createElement.js";
 
 export class App extends Component {
   constructor(props) {
