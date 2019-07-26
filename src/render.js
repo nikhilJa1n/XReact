@@ -1,4 +1,4 @@
-export default function render(element, mainDom) {
+export function render(element, mainDom) {
   const { type, props } = element;
 
   const isTextElement = type === 'TEXT_ELEMENT';
@@ -25,5 +25,7 @@ export default function render(element, mainDom) {
   const childElements = props.children || [];
   childElements.forEach(childElement => render(childElement, dom));
   mainDom.appendChild(dom);
-  return render;
+  return {
+    render,
+  };
 }

@@ -1,6 +1,6 @@
 const TEXT_ELEMENT = 'TEXT_ELEMENT';
 
-function createElement(type, properties, ...child) {
+export function createElement(type, properties, ...child) {
   const props = Object.assign({}, properties);
   const hasChildren = child.length > 0;
   const arrayChildren = hasChildren ? [].concat(...child) : [];
@@ -13,4 +13,3 @@ function createElement(type, properties, ...child) {
 function createTextElement(text) {
   return createElement(TEXT_ELEMENT, { textValue: text });
 }
-export default createElement;
