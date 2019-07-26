@@ -1,29 +1,31 @@
-import React from "../XReact.js";
+import XReact from "../XReact.js";
 import Component from "../component.js";
-import createElement from "../element.js";
+import { createElement } from "../createElement.js";
 
-const element = createElement("div", {}, createElement("p", {}, "paraTry"));
-console.log(React);
-// React.render(element, document.getElementById("root"));
+export class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return createElement("div", {}, createElement("p", {}, "paraTry"));
+  }
+}
+
 describe("component render", function() {
-  it("should render the components", function() {
-    class App extends Component {
-      constructor(props) {
-        super(props);
-      }
-      render() {
-        console.log(this.props);
-        return element;
-      }
-    }
-    const app = new App();
-    console.log(app);
-    // React.render(<App />, document.getElementById("root"));
-    React.render(element, document.getElementById("root"));
+  it("should render the components", async function() {
+    // const app = new App();
+    // console.log(app.render());
+    XReact.render(
+      "<App name={this.state.value} value={this.state.hello} />",
+      document.getElementById("root")
+    );
+    setTimeout(() => {
+      chai
+        .expect(document.getElementById("root").innerHTML)
+        .to.equal("<div><p>paraTry</p></div>");
+    }, 500);
+    // XReact.render(app.render(), document.getElementById("root"));
 
     console.log(document.getElementById("root").innerHTML);
-    chai
-      .expect(document.getElementById("root").innerHTML)
-      .to.equal("<div><p>paraTry</p></div>");
   });
 });
