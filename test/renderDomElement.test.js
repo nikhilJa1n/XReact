@@ -1,4 +1,4 @@
-import { render } from '../render.js';
+import { render } from '../src/render.js';
 
 describe('dom rendering', function() {
   beforeEach(function(done) {
