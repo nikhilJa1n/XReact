@@ -3,4 +3,5 @@ export default class Component {
     this.props = props;
     this.state = this.state || {};
   }
+  render() {}
 }
