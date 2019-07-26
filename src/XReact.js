@@ -1,7 +1,7 @@
-import { render } from './render.js';
+import { render } from "./render.js";
 
 export default {
-  render,
+  render
 };
 
 export { render };
