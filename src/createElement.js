@@ -13,7 +13,3 @@ export function createElement(type, properties, ...child) {
 function createTextElement(text) {
   return createElement(TEXT_ELEMENT, { textValue: text });
 }
-
-// export {
-//   createElement,
-// }
