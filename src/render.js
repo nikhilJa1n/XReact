@@ -1,30 +1,20 @@
-// import "../test/component.test.js/";
-
 export function render(element, mainDom) {
   if (typeof element === "string") {
-    console.log(element);
     var regexAllTags = /<([a-zA-Z1-6]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)/gim;
     var htmlTags = element.match(regexAllTags);
     var regexSingleTag = /<([a-zA-Z1-6]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)/;
-    // for (var i = 0; i < htmlTags.length; i++) {
     var text = regexSingleTag.exec(htmlTags[0]);
-    console.log(text);
-    const tagname = text[1];
-    let className;
-    import("./sample.js").then(tagname => {
-      className = tagname[text[1]];
-      console.log(className);
+    import("./app.js").then(tagname => {
+      const className = tagname[text[1]];
       const app = new className();
-      console.log(mainDom);
       const transpiledElement = app.render();
-      console.log(transpiledElement);
       render(transpiledElement, mainDom);
     });
-
-    // }
+  } else if (typeof element.type === "function") {
+    const { type, props } = element;
+    const instance = new type();
+    render(instance.render(), mainDom);
   } else {
-    // console.log(App);
-
     const { type, props } = element;
 
     const isTextElement = type === "TEXT_ELEMENT";
@@ -32,6 +22,7 @@ export function render(element, mainDom) {
       ? document.createTextNode(props.textValue)
       : document.createElement(type);
 
+    // Set Listeners
     const isListener = name => name.startsWith("on");
     Object.keys(props)
       .filter(isListener)
