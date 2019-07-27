@@ -7,7 +7,7 @@ Rebuilding the React.js library in our own way
 Clone the component branch.
 
 ```
-git clone https://github.com/nikhilJa1n/XReact.git -b component
+git clone https://github.com/nikhilJa1n/XReact.git -b master
 ```
 
 ### Prerequisites
