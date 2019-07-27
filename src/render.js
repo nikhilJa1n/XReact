@@ -11,7 +11,7 @@ export function render(element, mainDom) {
     console.log(text);
     const tagname = text[1];
     let className;
-    import("../test/component.test.js").then(tagname => {
+    import("./sample.js").then(tagname => {
       className = tagname[text[1]];
       console.log(className);
       const app = new className();

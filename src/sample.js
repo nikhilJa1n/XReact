@@ -1,31 +1,14 @@
-// const {X} = require('./element-didact')
-// const element = X('div',
-//                   X('p','first'),
-//                   X ('p',
-//                     X('ul',
-//                       X('li','hello')))
-//                   )
-// const fakeX = require('fakeX')
+import XReact from "../src/XReact.js";
+import Component from "../src/component.js";
+import { createElement } from "../src/createElement.js";
 
-const element2 = X(
-  "div",
-  {id : "container"},
-  X("input"),
-  X("a",
-    { href: "/bar" },
-    "bar"
-  ),
-  X("span",
-    { onClick: e => alert("Hi") },
-    "click me"
-  )
-);
-{/* <Div> </Div> */}
-// const element3 = '<div><p>hello</p></div>'
-// const testElement =(
-//   <div>hello</div>
-// ) 
+export class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return createElement("div", {}, createElement("p", {}, "paraTry"));
+  }
+}
 
-// console.log(element2)
-// document.getElementById('root').innerHTML= element3
-XReact.render(element2, document.getElementById('root'));
+XReact.render("<App />", document.getElementById("root"));
