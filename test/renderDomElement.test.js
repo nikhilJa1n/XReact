@@ -1,11 +1,11 @@
 import { render } from '../src/render.js';
 
-describe('dom rendering', function() {
-  beforeEach(function(done) {
+describe('dom rendering', () => {
+  beforeEach((done) => {
     document.getElementById('root').innerHTML = '';
     done();
   });
-  it('should render div', function() {
+  it('should render div', () => {
     const element = {
       type: 'div',
       props: {},
@@ -16,7 +16,7 @@ describe('dom rendering', function() {
       .to.equal('<div></div>');
   });
 
-  it('should render dom with childrens', function() {
+  it('should render dom with childrens', () => {
     const element = {
       type: 'div',
       props: {
@@ -32,7 +32,7 @@ describe('dom rendering', function() {
       .to.equal('<div><b></b><a href="try"></a></div>');
   });
 
-  it('should render div with props', function() {
+  it('should render div with props', () => {
     const element = {
       type: 'div',
       props: { id: 'try' },
@@ -43,7 +43,7 @@ describe('dom rendering', function() {
       .to.equal('<div id="try"></div>');
   });
 
-  it('should render div with text element', function() {
+  it('should render div with text element', () => {
     const element = {
       type: 'span',
       props: {

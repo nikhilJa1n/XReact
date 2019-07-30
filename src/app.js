@@ -1,47 +1,57 @@
-import XReact from "./XReact.js";
-import Component from "./component.js";
-import { createElement } from "./createElement.js";
+/* eslint-disable import/extensions */
+import { Component, createElement } from './XReact/XReact.js';
+import First from './firstChildComponent.js';
+import Second from './secondChildComponent.js';
 
-export class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
+    this.state = { counter: 0 };
   }
+
+  handleClick() {
+    this.setState({ counter: this.state.counter + 1 });
+  }
+
   render() {
     return createElement(
-      "div",
+      'div',
       {},
-      createElement("h1", {}, "XReact"),
+      createElement('h1', {}, this.props.title),
       createElement(
-        "ul",
+        'ul',
         {},
-        createElement("li", {}, "Karan Arora"),
-        createElement("li", {}, "Lokpati Mishra"),
-        createElement("li", {}, "Nikhil Jain")
+        createElement('li', {}, this.props.author1),
+        createElement('li', {}, this.props.author2),
+        createElement('li', {}, this.props.author3),
+        createElement('li', {}, this.state.counter),
+        createElement(First, { handleAlertClick: this.props.onClick }, null),
+        createElement(Second, { handleAddClick: this.handleClick.bind(this) }, null),
       ),
       createElement(
-        "span",
+        'span',
         {},
-        "Procedure to run XReact",
+        'Procedure to run XReact',
         createElement(
-          "ul",
+          'ul',
           {},
           createElement(
-            "li",
+            'li',
             {},
-            "We're running the render function on our custom string Components."
+            "We're running the render function on our custom string Components.",
           ),
           createElement(
-            "li",
+            'li',
             {},
-            "The App Component's render function returns the XReact element."
+            "The App Component's render function returns the XReact element.",
           ),
           createElement(
-            "li",
+            'li',
             {},
-            "We're using createElement function for creating our Xreact Object element."
-          )
-        )
-      )
+            "We're using createElement function for creating our Xreact Object element.",
+          ),
+        ),
+      ),
     );
   }
 }
