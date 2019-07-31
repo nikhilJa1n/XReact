@@ -1,8 +1,9 @@
-import { render } from '../src/render.js';
+import { render } from '../src/XReact/XReact.js';
 
 describe('dom rendering', () => {
   beforeEach((done) => {
     document.getElementById('root').innerHTML = '';
+    console.log('here in before each');
     done();
   });
   it('should render div', () => {
@@ -11,21 +12,17 @@ describe('dom rendering', () => {
       props: {},
     };
     render(element, document.getElementById('root'));
-    chai
-      .expect(document.getElementById('root').innerHTML)
-      .to.equal('<div></div>');
+    chai.expect(document.getElementById('root').innerHTML).to.equal('<div></div>');
   });
 
   it('should render dom with childrens', () => {
     const element = {
       type: 'div',
       props: {
-        children: [
-          { type: 'b', props: {} },
-          { type: 'a', props: { href: 'try' } },
-        ],
+        children: [{ type: 'b', props: {} }, { type: 'a', props: { href: 'try' } }],
       },
     };
+
     render(element, document.getElementById('root'));
     chai
       .expect(document.getElementById('root').innerHTML)
@@ -38,9 +35,7 @@ describe('dom rendering', () => {
       props: { id: 'try' },
     };
     render(element, document.getElementById('root'));
-    chai
-      .expect(document.getElementById('root').innerHTML)
-      .to.equal('<div id="try"></div>');
+    chai.expect(document.getElementById('root').innerHTML).to.equal('<div id="try"></div>');
   });
 
   it('should render div with text element', () => {
@@ -56,8 +51,9 @@ describe('dom rendering', () => {
       },
     };
     render(element, document.getElementById('root'));
-    chai
-      .expect(document.getElementById('root').innerHTML)
-      .to.equal('<span>try1</span>');
+    // console.log(doument.getElementById('root').innerHTML, 'last test');
+    chai.expect(document.getElementById('root').innerHTML).to.equal('<span>try1</span>');
   });
 });
+Guys, demos will be at 3:30 Today.
+￼

@@ -19,9 +19,6 @@ export default function render(element, mainDom) {
     const { childElements, dom } = renderObjectElement(element);
     childElements.forEach(childElement => render(childElement, dom));
     mainDom.appendChild(dom);
-    // return {
-    //   render,
-    // };
   }
 }
 
