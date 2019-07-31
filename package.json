@@ -1,0 +1,32 @@
+{
+  "name": "xreact",
+  "version": "1.0.0",
+  "description": "Trying to make clone of React.js library",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint '**/*.*' --fix --ignore-pattern node_modules/ --ignore-pattern views/; exit 0;",
+    "lintw": "watch 'npm run lint'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikhilJa1n/XReact.git"
+  },
+  "author": "karan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikhilJa1n/XReact/issues"
+  },
+  "homepage": "https://github.com/nikhilJa1n/XReact#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2"
+  },
+  "dependencies": {
+    "watch": "^1.0.2"
+  }
+}
