@@ -54,7 +54,7 @@
 		"body": [
 			"const app = JSX(",
 			"  <App title='XReact' />",
-			")",
+			"),",
 			"render(app, document.getElementById('root'));"
 		],
 		"description": "code for index.js"
@@ -98,7 +98,7 @@
 			"          <li>Nested item 2</li>",
 			"          <li>Nested item 3</li>",
 			"        </ul>",
-			"        <ChildComponent handleClick={this.handleClick}/>",
+			"        <ChildComponent buttonClick={this.handleClick}/>",
 			"      </div>",
 			"    )",
 			"  }",
@@ -127,7 +127,7 @@
 			"        <ul>",
 			"          <li>{this.state.counter}</li>",
 			"        </ul>",
-			"        <ChildComponent handleClick={this.handleClick}/>",
+			"        <ChildComponent buttonClick={this.handleClick}/>",
 			"      </div>",
 			"    )",
 			"  }",
@@ -158,7 +158,7 @@
 			"        <ul>",
 			"          <li>{this.state.counter}</li>",
 			"        </ul>",
-			"        <ChildComponent handleClick={this.handleClick}/>",
+			"        <ChildComponent buttonClick={this.handleClick}/>",
 			"      </div>",
 			"    )",
 			"  }",

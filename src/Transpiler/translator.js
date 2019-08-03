@@ -36,44 +36,33 @@ function convertJSXExpression(leftCounter, tokenArray, lengthOfTokenArray) {
 
 function extractHtmlTagFromText(leftCounter, tokenArray, lengthOfTokenArray) {
   // reomovewhiteSpace after jsX
-  while (leftCounter < lengthOfTokenArray && tokenArray === ' ')
-    leftCounter += 1;
+  while (leftCounter < lengthOfTokenArray && tokenArray === ' ') leftCounter += 1;
   return convertJSXExpression(leftCounter, tokenArray, lengthOfTokenArray);
 }
 
 async function transpilar() {
   const tokenArray = await tokenizer.tokenizer();
-  console.log('token Array =', tokenArray);
   const lengthOfTokenArray = tokenArray.length;
   let leftCounter = 0;
   let newText = '';
+  console.log('tokanArray=', tokenArray);
   while (leftCounter < lengthOfTokenArray) {
     if (tokenArray[leftCounter].startsWith('JSX')) {
-      const response = extractHtmlTagFromText(
-        leftCounter + 1,
-        tokenArray,
-        lengthOfTokenArray,
-      );
-      console.log(' domTree = ', response.DomTree);
-      console.log(' 1newText=', newText);
-      console.log('check this',response.DomTree);
+      const response = extractHtmlTagFromText(leftCounter + 1, tokenArray, lengthOfTokenArray);
+      console.log(' before text=', newText);
       newText += response.DomTree;
-      console.log(' 2newText=', newText);
+      console.log()
+      console.log(' after Text=', newText );
       leftCounter = response.rightIndex;
     } else {
-      console.log('tokenArray[leftCounter]',tokenArray[leftCounter]);
-      
       newText += tokenArray[leftCounter];
       if (leftCounter !== lengthOfTokenArray) newText += ' ';
       leftCounter += 1;
-      console.log('in if', newText);
-      
     }
   }
   console.log('---------tranpiled code --------');
   console.log(newText);
-console.log(process.argv[2]);    
-  fs.writeFile(`../${process.argv[2]}Transpiled.js`, newText, err => {
+  fs.writeFile(`../transpiledFiles/${process.argv[2]}Transpiled.js`, newText, (err) => {
     if (err) console.log(' error ', err);
   });
 }

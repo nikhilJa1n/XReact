@@ -4,8 +4,6 @@ const TEXT_ELEMENT = 'TEXT_ELEMENT';
 
 export default class App extends Component {
   render() {
-    return JSX(
-        <button>Button</button>
-    )     
+    return  createElement('button', { onClick:this.props.buttonClick, }, createElement(TEXT_ELEMENT, { textValue:"Button", }))    
   }
-}
+} 
