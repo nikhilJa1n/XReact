@@ -1,5 +1,5 @@
 /* eslint-disable no-use-before-define */
-// const TEXT_ELEMENT = 'TEXT_ELEMENT';
+const TEXT_ELEMENT = 'TEXT_ELEMENT';
 
 export default function createElement(type, properties, ...child) {
   const props = Object.assign({}, properties);
@@ -15,5 +15,5 @@ export default function createElement(type, properties, ...child) {
 }
 
 function createTextElement(text) {
-  return createElement('TEXT_ELEMENT', { textValue: text });
+  return createElement(TEXT_ELEMENT, { textValue: text });
 }

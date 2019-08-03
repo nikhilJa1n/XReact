@@ -7,10 +7,6 @@ const TEXT_ELEMENT = 'TEXT_ELEMENT';
 
 export default class App extends Component {
   render() {
-    return JSX(
-      <div>
-        Hello <span>{this.props.author}</span>
-      </div>
-    )
-  }
-}
+    return  createElement('div', {}, createElement(TEXT_ELEMENT, { textValue:"Hello ", })
+                    , createElement('span', {}, createElement(TEXT_ELEMENT, { textValue:this.props.author, })))  }
+} 

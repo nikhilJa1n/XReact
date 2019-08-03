@@ -4,8 +4,6 @@
 import { createElement, render } from './XReact/XReact.js';
 import App from './appTranspiled.js';
 
-const app = JSX(
-  <App title='XReact' author='karan' />
-),
+const app =  createElement(App, { title:'XReact',  author:'karan', })
 
-render(app, document.getElementById('root'));
+render(app, document.getElementById('root')); 

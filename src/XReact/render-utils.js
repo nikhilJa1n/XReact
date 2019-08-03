@@ -32,5 +32,6 @@ export function renderReactElement(element) {
   const { props } = element;
   const Type = element.type;
   const reactElement = new Type(props);
+  reactElement.componentWillMount();
   return reactElement;
 }
