@@ -35,8 +35,12 @@ constructor(props) {
   super(props);
 }
 render() {
-  return createElement("div", {}, createElement("p", {}, "paraTry"));
-}
+  return (
+      JSX(<div>
+        <p>paraTry</p>
+      </div>)
+    );
+  }
 }
 ```
 
